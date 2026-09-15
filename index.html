@@ -1,0 +1,134 @@
+<!doctype html>
+<title>TMS 十週年紀念特輯</title>
+<style>
+:root{
+  --bg:#f0eee1; --surface:#ffffff; --ink:#1b2422; --muted:#5c6b63;
+  --gold:#a9772f; --gold-soft:#c99a4f; --rule:#d9d2ba; --deep:#16302c;
+  --shadow: 0 18px 40px -22px rgba(20,30,25,.35);
+  --font-display:'Fraunces',ui-serif,Georgia,serif;
+  --font-body:'IBM Plex Sans','Noto Sans TC',ui-sans-serif,system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101815; --surface:#182420; --ink:#eef1ec; --muted:#93a099;
+    --gold:#d8a75c; --gold-soft:#c99a4f; --rule:#2a3733; --deep:#0b1a17;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101815; --surface:#182420; --ink:#eef1ec; --muted:#93a099;
+  --gold:#d8a75c; --gold-soft:#c99a4f; --rule:#2a3733; --deep:#0b1a17;
+  --shadow: 0 18px 40px -20px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body); padding-inline:20px; padding-block:0 72px;}
+a{color:inherit; text-decoration:none;}
+.wrap{max-width:1080px; margin:0 auto;}
+
+.hero{padding-block:64px 40px; border-bottom:1px solid var(--rule); position:relative;}
+.hero .num{
+  font-family:var(--font-display); font-weight:700; font-style:italic; font-size:clamp(5rem,18vw,9rem);
+  color:var(--gold); line-height:.85; margin:0;
+}
+.hero .eyebrow{font-family:var(--font-mono); font-size:.8rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 6px;}
+h1.title{font-family:var(--font-display); font-weight:700; font-size:clamp(1.9rem,4.2vw,2.8rem); margin:6px 0 16px; text-wrap:balance; line-height:1.12;}
+.hero p.sub{color:var(--muted); font-size:1.08rem; max-width:56ch; margin:0 0 26px; text-wrap:balance;}
+.stat-row{display:flex; gap:28px; flex-wrap:wrap; font-family:var(--font-mono);}
+.stat{display:flex; flex-direction:column; gap:2px;}
+.stat b{font-size:1.5rem; font-variant-numeric:tabular-nums; color:var(--deep);}
+:root:not([data-theme="light"]) .stat b{color:var(--gold-soft);}
+:root[data-theme="dark"] .stat b{color:var(--gold-soft);}
+.stat span{font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted);}
+
+.section-head{display:flex; align-items:baseline; gap:14px; margin:52px 0 22px;}
+.section-head h2{font-family:var(--font-display); font-weight:600; font-size:1.5rem; margin:0;}
+.section-head .rule{flex:1; height:1px; background:var(--rule);}
+
+.vols{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+.vol-card{
+  background:var(--surface); border-radius:6px; overflow:hidden; box-shadow:var(--shadow);
+  display:flex; flex-direction:column; transition:transform .25s ease;
+}
+.vol-card:hover{transform:translateY(-3px);}
+.vol-cover{aspect-ratio:16/10; overflow:hidden;}
+.vol-cover img{width:100%; height:100%; object-fit:cover; display:block;}
+.vol-body{padding:18px 20px 22px; display:flex; flex-direction:column; gap:6px;}
+.vol-label{font-family:var(--font-mono); font-size:.74rem; letter-spacing:.05em; text-transform:uppercase; color:var(--gold); margin:0;}
+.vol-title{font-family:var(--font-display); font-weight:700; font-size:1.6rem; margin:0;}
+.vol-desc{color:var(--muted); font-size:.92rem; margin:2px 0 10px; line-height:1.55;}
+.vol-cta{font-family:var(--font-mono); font-size:.78rem; letter-spacing:.03em; color:var(--deep); margin-top:auto;}
+:root:not([data-theme="light"]) .vol-cta{color:var(--gold-soft);}
+:root[data-theme="dark"] .vol-cta{color:var(--gold-soft);}
+
+.note{
+  margin-top:64px; padding-top:36px; border-top:1px solid var(--rule); text-align:center;
+  font-family:var(--font-display); font-style:italic; font-weight:500; font-size:1.15rem;
+  color:var(--deep); line-height:1.7;
+}
+:root:not([data-theme="light"]) .note{color:var(--gold-soft);}
+:root[data-theme="dark"] .note{color:var(--gold-soft);}
+
+footer{margin-top:48px; padding-top:24px; border-top:1px solid var(--rule); font-family:var(--font-mono); font-size:.76rem; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+
+@media (max-width:760px){
+  .vols{grid-template-columns:1fr;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,500..700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<div class="wrap">
+  <section class="hero">
+    <p class="eyebrow">TMS · 十週年</p>
+    <p class="num">10</p>
+    <h1 class="title">TMS 十週年紀念特輯</h1>
+    <p class="sub">十一年來，學會在歷屆理監事、講座與全體會員的支持下穩健成長。這份特輯彙集歷年活動影像，敬獻給每一位曾經參與、共同成就今日的您。</p>
+    <div class="stat-row">
+      <div class="stat"><b>8,873</b><span>原始影像</span></div>
+      <div class="stat"><b>285</b><span>精選典藏</span></div>
+      <div class="stat"><b>28</b><span>歷年活動</span></div>
+      <div class="stat"><b>11</b><span>學會歷程</span></div>
+    </div>
+  </section>
+
+  <div class="section-head"><h2>三部曲</h2><span class="rule"></span></div>
+  <div class="vols">
+    <a class="vol-card" href="vol1.html">
+      <div class="vol-cover"><img src="thumb/2017_TMS_Annual_Meeting_00.jpg" alt="萌芽" loading="lazy"></div>
+      <div class="vol-body">
+        <p class="vol-label">Vol. 1 · 2015 — 2019</p>
+        <h3 class="vol-title">萌芽</h3>
+        <p class="vol-desc">學會草創初期，篳路藍縷，於此奠定深厚基礎。</p>
+        <span class="vol-cta">查看相簿 &rarr;</span>
+      </div>
+    </a>
+    <a class="vol-card" href="vol2.html">
+      <div class="vol-cover"><img src="thumb/2022_TMS_Winter_Meeting_00.jpg" alt="淬鍊" loading="lazy"></div>
+      <div class="vol-body">
+        <p class="vol-label">Vol. 2 · 2020 — 2022</p>
+        <h3 class="vol-title">淬鍊</h3>
+        <p class="vol-desc">面對疫情嚴峻考驗，學會仍堅持凝聚，共度艱難時刻。</p>
+        <span class="vol-cta">查看相簿 &rarr;</span>
+      </div>
+    </a>
+    <a class="vol-card" href="vol3.html">
+      <div class="vol-cover"><img src="thumb/2024_TMS_Annual_Meeting_00.jpg" alt="盛放" loading="lazy"></div>
+      <div class="vol-body">
+        <p class="vol-label">Vol. 3 · 2023 — 2025</p>
+        <h3 class="vol-title">盛放</h3>
+        <p class="vol-desc">學會規模日益茁壯，學術交流與情誼並行不悖。</p>
+        <span class="vol-cta">查看相簿 &rarr;</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="note">
+    十一年來，學會的每一步成長，都銘記著您的參與與支持。謹以此輯，向您致上誠摯謝意。
+  </div>
+
+  <footer>
+    <span>TMS 十週年紀念特輯</span>
+    <span>謹獻給全體會員與歷屆嘉賓</span>
+  </footer>
+</div>

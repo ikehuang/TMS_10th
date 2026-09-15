@@ -1,0 +1,188 @@
+<!doctype html>
+<title>TMS十週年 Vol. 3 2023–2025</title>
+<style>
+:root{
+  --bg:#f0eee1; --surface:#ffffff; --ink:#1b2422; --muted:#5c6b63;
+  --gold:#a9772f; --gold-soft:#c99a4f; --rule:#d9d2ba; --deep:#16302c;
+  --shadow: 0 18px 40px -22px rgba(20,30,25,.35);
+  --font-display:'Fraunces',ui-serif,Georgia,serif;
+  --font-body:'IBM Plex Sans','Noto Sans TC',ui-sans-serif,system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101815; --surface:#182420; --ink:#eef1ec; --muted:#93a099;
+    --gold:#d8a75c; --gold-soft:#c99a4f; --rule:#2a3733; --deep:#0b1a17;
+    --shadow: 0 18px 40px -20px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101815; --surface:#182420; --ink:#eef1ec; --muted:#93a099;
+  --gold:#d8a75c; --gold-soft:#c99a4f; --rule:#2a3733; --deep:#0b1a17;
+  --shadow: 0 18px 40px -20px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box;}
+body{
+  margin:0; background:var(--bg); color:var(--ink); font-family:var(--font-body);
+  padding-inline:20px; padding-block:0 64px;
+}
+a{color:inherit;}
+.wrap{max-width:1080px; margin:0 auto;}
+header.top{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding-block:22px; border-bottom:1px solid var(--rule); flex-wrap:wrap;
+  position:sticky; top:0; background:var(--bg); z-index:30;
+}
+.brand{display:flex; align-items:baseline; gap:10px; font-family:var(--font-display); font-weight:700; font-size:1.05rem; letter-spacing:.02em;}
+.brand .num{color:var(--gold); font-style:italic;}
+.top-nav{display:flex; gap:18px; font-family:var(--font-mono); font-size:.78rem; letter-spacing:.04em; text-transform:uppercase;}
+.top-nav a{padding-bottom:2px; border-bottom:2px solid transparent; text-decoration:none; color:var(--muted);}
+.top-nav a.current, .top-nav a:hover{color:var(--ink); border-color:var(--gold);}
+.hero{padding-block:48px 36px; border-bottom:1px solid var(--rule);}
+.eyebrow{font-family:var(--font-mono); font-size:.78rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); margin:0 0 10px;}
+h1.title{
+  font-family:var(--font-display); font-weight:700; font-size:clamp(2.1rem,5vw,3.4rem);
+  margin:0 0 12px; text-wrap:balance; line-height:1.05;
+}
+.hero p.sub{color:var(--muted); font-size:1.05rem; max-width:60ch; margin:0 0 18px; text-wrap:balance;}
+.hero .meta{font-family:var(--font-mono); font-size:.82rem; color:var(--muted); display:flex; gap:18px; flex-wrap:wrap;}
+.hero .meta b{color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums;}
+
+.year-block{padding-block:44px 8px;}
+.year-head{display:flex; align-items:baseline; gap:18px; margin-bottom:22px;}
+.year-head .num{
+  font-family:var(--font-display); font-weight:600; font-style:italic; font-size:clamp(2.4rem,7vw,4rem);
+  color:var(--deep); line-height:1;
+}
+:root:not([data-theme="light"]) .year-head .num{color:var(--gold-soft);}
+:root[data-theme="dark"] .year-head .num{color:var(--gold-soft);}
+.year-head .rule{flex:1; height:1px; background:var(--rule);}
+
+.event{margin-bottom:34px;}
+.event-head{display:flex; align-items:baseline; gap:10px; margin-bottom:12px; flex-wrap:baseline;}
+.event-head .zh{font-family:var(--font-display); font-weight:600; font-size:1.15rem;}
+.event-head .count{font-family:var(--font-mono); font-size:.72rem; color:var(--gold); margin-left:auto;}
+
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px;}
+.grid button{
+  border:none; padding:0; margin:0; background:var(--surface); cursor:zoom-in; border-radius:3px;
+  overflow:hidden; aspect-ratio:4/3; position:relative; box-shadow:var(--shadow);
+}
+.grid img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .35s ease;}
+.grid button:hover img{transform:scale(1.045);}
+.grid button:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+
+footer{
+  margin-top:40px; padding-top:28px; border-top:1px solid var(--rule);
+  font-family:var(--font-mono); font-size:.76rem; color:var(--muted); display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+}
+
+.lightbox{
+  position:fixed; inset:0; background:rgba(10,15,13,.92); display:none; align-items:center; justify-content:center;
+  z-index:100; padding:24px;
+}
+.lightbox.open{display:flex;}
+.lightbox figure{margin:0; max-width:min(92vw,1100px); max-height:88vh; display:flex; flex-direction:column; gap:10px; align-items:center;}
+.lightbox img{max-width:100%; max-height:76vh; object-fit:contain; border-radius:2px; box-shadow:0 30px 60px -20px rgba(0,0,0,.6);}
+.lightbox figcaption{color:#eee6d2; font-family:var(--font-mono); font-size:.8rem; text-align:center; letter-spacing:.02em;}
+.lb-btn{
+  position:fixed; top:50%; transform:translateY(-50%); background:none; border:none; color:#eee6d2;
+  font-size:2.4rem; cursor:pointer; padding:12px 18px; opacity:.75; font-family:var(--font-body);
+}
+.lb-btn:hover{opacity:1;}
+.lb-prev{left:4px;} .lb-next{right:4px;}
+.lb-close{position:fixed; top:18px; right:22px; background:none; border:none; color:#eee6d2; font-size:1.6rem; cursor:pointer; opacity:.8;}
+.lb-close:hover{opacity:1;}
+
+@media (max-width:520px){
+  .top-nav{gap:10px; font-size:.7rem;}
+  .lb-btn{font-size:1.8rem; padding:8px 10px;}
+}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,500..700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="num">10</span>&nbsp;TMS 週年紀念特輯</div>
+    <nav class="top-nav">
+      <a href="index.html">總覽</a>
+      <a href="vol1.html">Vol.1 2015–19</a>
+      <a href="vol2.html">Vol.2 2020–22</a>
+      <a href="vol3.html" class="current">Vol.3 2023–25</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">TMS 十週年 · 2023–2025</p>
+    <h1 class="title">Vol. 3 · 盛放</h1>
+    <p class="sub">學會規模日益茁壯，學術交流與情誼並行不悖。</p>
+    <div class="meta"><span>活動 <b>9</b> 場</span><span>典藏 <b>93</b> 張</span></div>
+  </section>
+
+  <main id="main"></main>
+
+  <footer>
+    <span>TMS 十週年紀念特輯 · Vol. 3 2023–2025</span>
+    <span>感謝您的參與，共同寫下這段歷史</span>
+  </footer>
+</div>
+
+<div class="lightbox" id="lb">
+  <button class="lb-close" id="lbClose" aria-label="關閉">&times;</button>
+  <button class="lb-btn lb-prev" id="lbPrev" aria-label="上一張">&#8249;</button>
+  <button class="lb-btn lb-next" id="lbNext" aria-label="下一張">&#8250;</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<script id="data" type="application/json">[{"year": "2023", "events": [{"name": "2023 TMS Spring Meeting", "zh": "春季會議", "count": 11, "photos": [{"thumb": "thumb/2023_TMS_Spring_Meeting_00.jpg", "full": "full/2023_TMS_Spring_Meeting_00.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_01.jpg", "full": "full/2023_TMS_Spring_Meeting_01.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_02.jpg", "full": "full/2023_TMS_Spring_Meeting_02.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_03.jpg", "full": "full/2023_TMS_Spring_Meeting_03.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_04.jpg", "full": "full/2023_TMS_Spring_Meeting_04.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_05.jpg", "full": "full/2023_TMS_Spring_Meeting_05.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_06.jpg", "full": "full/2023_TMS_Spring_Meeting_06.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_07.jpg", "full": "full/2023_TMS_Spring_Meeting_07.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_08.jpg", "full": "full/2023_TMS_Spring_Meeting_08.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_09.jpg", "full": "full/2023_TMS_Spring_Meeting_09.jpg"}, {"thumb": "thumb/2023_TMS_Spring_Meeting_10.jpg", "full": "full/2023_TMS_Spring_Meeting_10.jpg"}]}, {"name": "2023 TMS Summer Meeting", "zh": "夏季會議", "count": 10, "photos": [{"thumb": "thumb/2023_TMS_Summer_Meeting_00.jpg", "full": "full/2023_TMS_Summer_Meeting_00.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_01.jpg", "full": "full/2023_TMS_Summer_Meeting_01.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_02.jpg", "full": "full/2023_TMS_Summer_Meeting_02.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_03.jpg", "full": "full/2023_TMS_Summer_Meeting_03.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_04.jpg", "full": "full/2023_TMS_Summer_Meeting_04.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_05.jpg", "full": "full/2023_TMS_Summer_Meeting_05.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_06.jpg", "full": "full/2023_TMS_Summer_Meeting_06.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_07.jpg", "full": "full/2023_TMS_Summer_Meeting_07.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_08.jpg", "full": "full/2023_TMS_Summer_Meeting_08.jpg"}, {"thumb": "thumb/2023_TMS_Summer_Meeting_09.jpg", "full": "full/2023_TMS_Summer_Meeting_09.jpg"}]}, {"name": "2023 TMS Annual Meeting", "zh": "年會", "count": 11, "photos": [{"thumb": "thumb/2023_TMS_Annual_Meeting_00.jpg", "full": "full/2023_TMS_Annual_Meeting_00.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_01.jpg", "full": "full/2023_TMS_Annual_Meeting_01.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_02.jpg", "full": "full/2023_TMS_Annual_Meeting_02.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_03.jpg", "full": "full/2023_TMS_Annual_Meeting_03.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_04.jpg", "full": "full/2023_TMS_Annual_Meeting_04.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_05.jpg", "full": "full/2023_TMS_Annual_Meeting_05.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_06.jpg", "full": "full/2023_TMS_Annual_Meeting_06.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_07.jpg", "full": "full/2023_TMS_Annual_Meeting_07.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_08.jpg", "full": "full/2023_TMS_Annual_Meeting_08.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_09.jpg", "full": "full/2023_TMS_Annual_Meeting_09.jpg"}, {"thumb": "thumb/2023_TMS_Annual_Meeting_10.jpg", "full": "full/2023_TMS_Annual_Meeting_10.jpg"}]}]}, {"year": "2024", "events": [{"name": "2024 TMS Spring Meeting", "zh": "春季會議", "count": 11, "photos": [{"thumb": "thumb/2024_TMS_Spring_Meeting_00.jpg", "full": "full/2024_TMS_Spring_Meeting_00.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_01.jpg", "full": "full/2024_TMS_Spring_Meeting_01.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_02.jpg", "full": "full/2024_TMS_Spring_Meeting_02.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_03.jpg", "full": "full/2024_TMS_Spring_Meeting_03.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_04.jpg", "full": "full/2024_TMS_Spring_Meeting_04.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_05.jpg", "full": "full/2024_TMS_Spring_Meeting_05.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_06.jpg", "full": "full/2024_TMS_Spring_Meeting_06.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_07.jpg", "full": "full/2024_TMS_Spring_Meeting_07.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_08.jpg", "full": "full/2024_TMS_Spring_Meeting_08.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_09.jpg", "full": "full/2024_TMS_Spring_Meeting_09.jpg"}, {"thumb": "thumb/2024_TMS_Spring_Meeting_10.jpg", "full": "full/2024_TMS_Spring_Meeting_10.jpg"}]}, {"name": "2024 TMS Summer Meeting", "zh": "夏季會議", "count": 10, "photos": [{"thumb": "thumb/2024_TMS_Summer_Meeting_00.jpg", "full": "full/2024_TMS_Summer_Meeting_00.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_01.jpg", "full": "full/2024_TMS_Summer_Meeting_01.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_02.jpg", "full": "full/2024_TMS_Summer_Meeting_02.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_03.jpg", "full": "full/2024_TMS_Summer_Meeting_03.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_04.jpg", "full": "full/2024_TMS_Summer_Meeting_04.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_05.jpg", "full": "full/2024_TMS_Summer_Meeting_05.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_06.jpg", "full": "full/2024_TMS_Summer_Meeting_06.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_07.jpg", "full": "full/2024_TMS_Summer_Meeting_07.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_08.jpg", "full": "full/2024_TMS_Summer_Meeting_08.jpg"}, {"thumb": "thumb/2024_TMS_Summer_Meeting_09.jpg", "full": "full/2024_TMS_Summer_Meeting_09.jpg"}]}, {"name": "2024 TMS Master Class", "zh": "大師班", "count": 10, "photos": [{"thumb": "thumb/2024_TMS_Master_Class_00.jpg", "full": "full/2024_TMS_Master_Class_00.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_01.jpg", "full": "full/2024_TMS_Master_Class_01.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_02.jpg", "full": "full/2024_TMS_Master_Class_02.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_03.jpg", "full": "full/2024_TMS_Master_Class_03.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_04.jpg", "full": "full/2024_TMS_Master_Class_04.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_05.jpg", "full": "full/2024_TMS_Master_Class_05.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_06.jpg", "full": "full/2024_TMS_Master_Class_06.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_07.jpg", "full": "full/2024_TMS_Master_Class_07.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_08.jpg", "full": "full/2024_TMS_Master_Class_08.jpg"}, {"thumb": "thumb/2024_TMS_Master_Class_09.jpg", "full": "full/2024_TMS_Master_Class_09.jpg"}]}, {"name": "2024 TMS Annual Meeting", "zh": "年會", "count": 10, "photos": [{"thumb": "thumb/2024_TMS_Annual_Meeting_00.jpg", "full": "full/2024_TMS_Annual_Meeting_00.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_01.jpg", "full": "full/2024_TMS_Annual_Meeting_01.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_02.jpg", "full": "full/2024_TMS_Annual_Meeting_02.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_03.jpg", "full": "full/2024_TMS_Annual_Meeting_03.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_04.jpg", "full": "full/2024_TMS_Annual_Meeting_04.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_05.jpg", "full": "full/2024_TMS_Annual_Meeting_05.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_06.jpg", "full": "full/2024_TMS_Annual_Meeting_06.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_07.jpg", "full": "full/2024_TMS_Annual_Meeting_07.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_08.jpg", "full": "full/2024_TMS_Annual_Meeting_08.jpg"}, {"thumb": "thumb/2024_TMS_Annual_Meeting_09.jpg", "full": "full/2024_TMS_Annual_Meeting_09.jpg"}]}]}, {"year": "2025", "events": [{"name": "2025 TMS Spring Meeting", "zh": "春季會議", "count": 11, "photos": [{"thumb": "thumb/2025_TMS_Spring_Meeting_00.jpg", "full": "full/2025_TMS_Spring_Meeting_00.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_01.jpg", "full": "full/2025_TMS_Spring_Meeting_01.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_02.jpg", "full": "full/2025_TMS_Spring_Meeting_02.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_03.jpg", "full": "full/2025_TMS_Spring_Meeting_03.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_04.jpg", "full": "full/2025_TMS_Spring_Meeting_04.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_05.jpg", "full": "full/2025_TMS_Spring_Meeting_05.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_06.jpg", "full": "full/2025_TMS_Spring_Meeting_06.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_07.jpg", "full": "full/2025_TMS_Spring_Meeting_07.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_08.jpg", "full": "full/2025_TMS_Spring_Meeting_08.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_09.jpg", "full": "full/2025_TMS_Spring_Meeting_09.jpg"}, {"thumb": "thumb/2025_TMS_Spring_Meeting_10.jpg", "full": "full/2025_TMS_Spring_Meeting_10.jpg"}]}, {"name": "2025 TMS Summer Meeting", "zh": "夏季會議", "count": 9, "photos": [{"thumb": "thumb/2025_TMS_Summer_Meeting_00.jpg", "full": "full/2025_TMS_Summer_Meeting_00.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_01.jpg", "full": "full/2025_TMS_Summer_Meeting_01.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_02.jpg", "full": "full/2025_TMS_Summer_Meeting_02.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_03.jpg", "full": "full/2025_TMS_Summer_Meeting_03.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_04.jpg", "full": "full/2025_TMS_Summer_Meeting_04.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_05.jpg", "full": "full/2025_TMS_Summer_Meeting_05.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_06.jpg", "full": "full/2025_TMS_Summer_Meeting_06.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_07.jpg", "full": "full/2025_TMS_Summer_Meeting_07.jpg"}, {"thumb": "thumb/2025_TMS_Summer_Meeting_08.jpg", "full": "full/2025_TMS_Summer_Meeting_08.jpg"}]}]}]</script>
+<script>
+const YEARS = JSON.parse(document.getElementById('data').textContent);
+const main = document.getElementById('main');
+const flat = []; // for lightbox prev/next across whole volume
+
+YEARS.forEach(yr => {
+  const yb = document.createElement('section');
+  yb.className = 'year-block';
+  yb.innerHTML = `<div class="year-head"><span class="num">${yr.year}</span><span class="rule"></span></div>`;
+  yr.events.forEach(ev => {
+    const evEl = document.createElement('div');
+    evEl.className = 'event';
+    evEl.innerHTML = `<div class="event-head"><span class="zh">${ev.zh}</span><span class="count">共 ${ev.count} 張</span></div>`;
+    const grid = document.createElement('div');
+    grid.className = 'grid';
+    ev.photos.forEach((p, i) => {
+      const btn = document.createElement('button');
+      btn.innerHTML = `<img src="${p.thumb}" loading="lazy" alt="${ev.zh} ${i+1}">`;
+      const flatIndex = flat.length;
+      flat.push({full: p.full, cap: `${ev.zh} · 第 ${i+1} 張／共 ${ev.count} 張`});
+      btn.addEventListener('click', () => openLB(flatIndex));
+      grid.appendChild(btn);
+    });
+    evEl.appendChild(grid);
+    yb.appendChild(evEl);
+  });
+  main.appendChild(yb);
+});
+
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+const lbCap = document.getElementById('lbCap');
+let cur = 0;
+function openLB(i){ cur = i; render(); lb.classList.add('open'); }
+function render(){ const it = flat[cur]; lbImg.src = it.full; lbImg.alt = it.cap; lbCap.textContent = it.cap; }
+function closeLB(){ lb.classList.remove('open'); }
+document.getElementById('lbClose').addEventListener('click', closeLB);
+document.getElementById('lbPrev').addEventListener('click', () => { cur = (cur - 1 + flat.length) % flat.length; render(); });
+document.getElementById('lbNext').addEventListener('click', () => { cur = (cur + 1) % flat.length; render(); });
+lb.addEventListener('click', (e) => { if(e.target === lb) closeLB(); });
+document.addEventListener('keydown', (e) => {
+  if(!lb.classList.contains('open')) return;
+  if(e.key === 'Escape') closeLB();
+  if(e.key === 'ArrowLeft') { cur = (cur - 1 + flat.length) % flat.length; render(); }
+  if(e.key === 'ArrowRight') { cur = (cur + 1) % flat.length; render(); }
+});
+</script>
